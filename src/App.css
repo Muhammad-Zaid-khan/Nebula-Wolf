@@ -21,8 +21,94 @@ main {
   position: absolute;
 }
 section {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   position: relative;
+  overflow: hidden;
+}
+#canvas-elem::after{
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url(./background-l.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+}
+#section-1{
+  position: relative;
+}
+#long{
+  transform: rotate(45deg) translate(-12rem , -17rem);
+  background-color: rgba(255, 0, 0, 0.555);
+}
+#short{
+  transform: rotate(45deg);
+  background-color: rgba(255, 0, 0, 0.555);
+}
+#section-2 {
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem 4rem;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+  }
+}
+main:has(#section-2 .title:hover) #canvas-elem::after{
+  opacity: 0;
+}
+.images{
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  transition: all 0.3s linear;
+
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all 0.3s linear;
+  }
+}
+
+main:has(#section-2 #title[img-title="tommorowland"]:hover) .images #tommorowland{
+  opacity: 1;
+  background-color: rgba(4, 7, 24)
+}
+main:has(#section-2 #title[img-title="navy-pier"]:hover) .images #navy-pier{
+  opacity: 1;
+  background-color: rgba(4, 7, 24)
+}
+main:has(#section-2 #title[img-title="msi-chicago"]:hover) .images #msi-chicago{
+  opacity: 1;
+  background-color: rgba(4, 7, 24)
+}
+main:has(#section-2 #title[img-title="kikk"]:hover) .images #kikk{
+  opacity: 1;
+  background-color: rgb(4, 21, 121)
+}
+main:has(#section-2 #title[img-title="kennedy"]:hover) .images #kennedy{
+  opacity: 1;
+  background-color: rgb(1, 37, 8)
+}
+main:has(#section-2 #title[img-title="phone"]:hover) .images #phone{
+  opacity: 1;
+  background-color: rgba(4, 7, 24)
+}
+main:has(#section-2 #title[img-title="opera"]:hover) .images #opera{
+  opacity: 1;
+  background-color: rgb(146, 11, 4)
 }
